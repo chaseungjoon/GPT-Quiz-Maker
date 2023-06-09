@@ -26,13 +26,13 @@ def chat_completion(param, quantity):
 def save_html(ans, subject, language):
     lexer = get_lexer_by_name(language)
     html_content = highlight(ans, lexer, HtmlFormatter(full=True, noclasses=True))
-    html_address = directory + subject + "/_GPTQuiz.html"
+    html_address = directory + subject + "_GPTQuiz.html"
     with open(html_address, "w") as html_file:
         html_file.write(html_content)
 
 # If not coding subject, regular PDF file
 def save_pdf(ans, subject):
-    pdf_address = directory + subject + "/_GPTQuiz.pdf"
+    pdf_address = directory + subject + "_GPTQuiz.pdf"
     pdf = FPDF()
     pdf.add_page()
     pdf.add_font("DejaVu", style="", fname=font_directory)
