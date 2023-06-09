@@ -5,11 +5,11 @@ from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
 
-directory = "YOUR_FILE_SAVE_DIRECTORY"
+directory = "YOUR_FILE_SAVE_DIRECTORY/"
 openai.api_key = "YOUR_API_KEY
 # Download Dejavu Fonts for better coverage of non-ascii characters
 # Download -> https://dejavu-fonts.github.io/Download.html 
-font_directory = "DIRECTORY_FOR_DejavuSans.ttf"
+font_directory = "DIRECTORY_FOR_/DejavuSans.ttf"
 
 def chat_completion(param, quantity):
     response = openai.ChatCompletion.create(
@@ -26,13 +26,13 @@ def chat_completion(param, quantity):
 def save_html(ans, subject, language):
     lexer = get_lexer_by_name(language)
     html_content = highlight(ans, lexer, HtmlFormatter(full=True, noclasses=True))
-    html_address = directory + subject + "_GPTQuiz.html"
+    html_address = directory + subject + "/_GPTQuiz.html"
     with open(html_address, "w") as html_file:
         html_file.write(html_content)
 
 # If not coding subject, regular PDF file
 def save_pdf(ans, subject):
-    pdf_address = directory + subject + "_GPTQuiz.pdf"
+    pdf_address = directory + subject + "/_GPTQuiz.pdf"
     pdf = FPDF()
     pdf.add_page()
     pdf.add_font("DejaVu", style="", fname=font_directory)
